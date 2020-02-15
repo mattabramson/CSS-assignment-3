@@ -8,13 +8,13 @@ html {
     box-sizing: inherit; /* keep */
 }
 body {
-    font-family: sans-serif;
+    font-family: 'Lora', 'Times New Roman', serif;
     background: #5598b2; /* keep */
     color: #333; /* keep */
     margin: 0; /* keep */
 }
 h1, h2 {
-    font-family: serif;
+    font-family: 'Acme', 'Verdana', sans-serif;
 }
 #tagline {
     font-style: italic;
@@ -37,11 +37,15 @@ img {
     max-width: 1280px; /* keep */
     margin: auto; /* keep */
     display: grid; /* keep */
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 1.5fr 1.5fr 1fr 1.5fr 1.5fr;
+    grid-template-rows: [header-start] 1fr [pairing-start / arial-start / georgia-start] 1fr [readability-start] 1fr [typeface-start] 1fr [footer-start] 1fr;
     grid-template-areas:
-        "header arial georgia pairing bobwhite-quail"
-        "readability line-length helvetica typeface footer";
+        "header header header header header"
+        "pairing pairing pairing arial georgia"
+        "bobwhite-quail bobwhite-quail readability readability readability"
+        "bobwhite-quail bobwhite-quail line-length line-length line-length"
+        "typeface typeface typeface helvetica helvetica"
+        "footer footer footer footer footer";
 }
 
 /* all grid items -
@@ -53,43 +57,67 @@ img {
 header {
     grid-area: header; /* keep */
     background: #fff; /* keep */
+    font-size: 2em;
+    text-align: center;
+    padding: 1em 1em 4em 1em;
+
 }
 #arial {
     grid-area: arial; /* keep */
     background: #a8e8ff; /* keep */
+    padding: 4em 2em 2em 0em;
 }
 #georgia {
     grid-area: georgia; /* keep */
     background: #a8e8ff; /* keep */
+    padding: 4em 2em 2em 0em;
 }
 #pairing {
     grid-area: pairing; /* keep */
     background: #a8e8ff; /* keep */
+    font-size: 1.6em;
+    padding: 2.5em 1em 2.5em 2.5em;
+    margin: -.01em;
 }
 #bobwhite-quail {
     grid-area: bobwhite-quail; /* keep */
     background: #d2f4ff; /* keep */
+    padding: 3em 3em 3em 4em;
 }
 #readability {
     grid-area: readability; /* keep */
     background: #d2f4ff; /* keep */
+    font-size: 1.3em;
+    padding: 1em 4em 0em 0em;
 }
 #line-length {
     grid-area: line-length; /* keep */
     background: #d2f4ff; /* keep */
+    font-size: 1.3em;
+    padding: 0em 4em 2em 0em;
 }
 #helvetica {
     grid-area: helvetica; /* keep */
     background: #fff; /* keep */
+    padding: 3em 3em 0em 3em;
+    margin: 5em 4em 32em 4em;
 }
 #typeface {
     grid-area: typeface; /* keep */
     color: #d2f4ff; /* keep */
     background: #5598b2; /* keep */
+    font-size: 1.5em;
+    padding: 1.5em 1.5em 2.5em 1em;
+    margin-right: -2em;
+    margin-left: 2em;
+    text-shadow: 1px 2px 2px #666;
 }
 footer {
     grid-area: footer; /* keep */
     background: #b2988a; /* keep */
+    font-size: 1.5em;
+    text-align: center;
+    padding: .5em;
 }
 
 /* end of all 10 grid items */
@@ -98,6 +126,7 @@ footer {
 /* pseudo classes */
 a {
     color: #7c6a60; /* keep */
+    text-shadow: none;
 }
 a:hover {
     color: #f4cdb7; /* keep */

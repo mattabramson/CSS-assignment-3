@@ -37,7 +37,7 @@ img {
     max-width: 1280px; /* keep */
     margin: auto; /* keep */
     display: grid; /* keep */
-    grid-template-columns: 1.5fr 1.5fr 1fr 1.5fr 1.5fr;
+    grid-template-columns: repeat (5, 1fr);
     grid-template-rows: [header-start] 1fr [pairing-start / arial-start / georgia-start] 1fr [readability-start] 1fr [typeface-start] 1fr [footer-start] 1fr;
     grid-template-areas:
         "header header header header header"
@@ -45,6 +45,7 @@ img {
         "bobwhite-quail bobwhite-quail readability readability readability"
         "bobwhite-quail bobwhite-quail line-length line-length line-length"
         "typeface typeface typeface helvetica helvetica"
+        "typeface typeface typeface blank blank"
         "footer footer footer footer footer";
 }
 
@@ -99,8 +100,8 @@ header {
 #helvetica {
     grid-area: helvetica; /* keep */
     background: #fff; /* keep */
-    padding: 3em 3em 0em 3em;
-    margin: 5em 4em 32em 4em;
+    padding: 3em 3em 2em 3em;
+    margin: 5em 4em 35em 4em;
 }
 #typeface {
     grid-area: typeface; /* keep */
@@ -134,3 +135,51 @@ a:hover {
 }
 
 /* media queries below - only 1 is needed */
+@media screen and (max-width: 850px) {
+  #container {
+      grid-template-columns: repeat (2, 1fr);
+      grid-template-rows: [header-start] 1fr [arial-start / georgia-start] 1fr [pairing-start] 1fr [bobwhite-quail-start] 1fr [readability-start] 1fr [line-length-start] 1fr [helvetica] 1fr [typeface-start] 1fr [footer-start] 1fr;
+      grid-template-areas:
+          "header header"
+          "arial georgia"
+          "pairing pairing"
+          "bobwhite-quail bobwhite-quail"
+          "readability readability"
+          "line-length line-length"
+          "helvetica helvetica"
+          "typeface typeface"
+          "footer footer";
+  }
+  header {
+      padding: 1em 1em 1em 1em;
+      margin-bottom: -6.5rem;
+  }
+  #arial {
+      padding: 1.2em .5em 1em 1em;
+  }
+  #georgia {
+      padding: 1.2em 1em 1em .5em;
+  }
+  #pairing {
+      padding: 1em 1em 2em 1em;
+  }
+  #bobwhite-quail {
+      padding: 1.5em 1.5em 0.5em 1.5em;
+  }
+  #readability {
+      padding: 0em 1em 0em 1em;
+  }
+  #line-length {
+      padding: 0em 1em .5em 1em;
+  }
+  #helvetica {
+      padding: 1em 1em 1em 1em;
+      margin: 0em;
+  }
+  #typeface {
+      font-size: 1.4em;
+      padding: 1em;
+      margin-right: 0em;
+      margin-left: 0em;
+  }
+}
